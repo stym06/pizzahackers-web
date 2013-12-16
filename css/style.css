@@ -1,7 +1,59 @@
-body{
+body,.ph_main,.ph_block{
 	background-image:-webkit-linear-gradient(rgba(200,200,200,.16) 1px,transparent 1px),-webkit-linear-gradient(0deg,rgba(200,200,200,.16) 1px,transparent 1px),-webkit-linear-gradient(rgba(200,200,200,.12) 1px,transparent 1px),-webkit-linear-gradient(0deg,rgba(200,200,200,.12) 1px,transparent 1px),-webkit-linear-gradient(rgba(200,200,200,.1) 1px,transparent 1px),-webkit-linear-gradient(0deg,rgba(200,200,200,.1) 1px,transparent 1px);
 	background-image:-moz-linear-gradient(rgba(200,200,200,.16) 1px,transparent 1px),-moz-linear-gradient(0deg,rgba(200,200,200,.16) 1px,transparent 1px),-moz-linear-gradient(rgba(200,200,200,.12) 1px,transparent 1px),-moz-linear-gradient(0deg,rgba(200,200,200,.12) 1px,transparent 1px),-moz-linear-gradient(rgba(200,200,200,.1) 1px,transparent 1px),-moz-linear-gradient(0deg,rgba(200,200,200,.1) 1px,transparent 1px);
 	background-image: -ms-linear-gradient(rgba(200,200,200,.16) 1px,transparent 1px),-ms-linear-gradient(0deg,rgba(200,200,200,.16) 1px,transparent 1px),-ms-linear-gradient(rgba(200,200,200,.12) 1px,transparent 1px),-ms-linear-gradient(0deg,rgba(200,200,200,.12) 1px,transparent 1px),-ms-linear-gradient(rgba(200,200,200,.1) 1px,transparent 1px),-ms-linear-gradient(0deg,rgba(200,200,200,.1) 1px,transparent 1px);
 	background-size:4em 4em,4em 4em,1em 1em,1em 1em,.5em .5em,.5em .5em;
 	background-color:rgba(26,156,222,1);
+}
+.ph_main{
+	background-color: #171104;
+	text-align: center;
+}
+.ph_main p{
+	margin-top: 10px;
+
+}
+.ph_logo{
+	width: 91px;
+}
+.pizza,.hackers{
+	color: rgba(26,156,222,1)!important;
+	font-family: sans-serif;
+	font-size: 2em;
+	letter-spacing: 0.4px;
+	
+	font-weight:bold;
+}
+.pizza{
+	color: rgb(191, 56, 43);
+}
+.hackers{
+	color:rgb(142, 67, 172);
+}
+.tagline{
+margin-top: 2.5em;
+height: 4em;
+width: 100%;
+font-family: sans-serif;
+font-weight: 100;
+text-align: center;
+line-height: 4em;
+color: rgb(0, 255, 188);
+}
+
+.ph_block{
+	text-align: center;
+	background-color: white;
+}
+.ph_block_desc{
+	margin-top: 10px;
+	text-align:right;
+	padding:13px;
+}
+.row{
+	margin-top: 10px;
+}
+
+.ph_carousel{
+	height: 350px;
 }
