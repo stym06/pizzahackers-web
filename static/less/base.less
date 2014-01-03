@@ -1,0 +1,54 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+
+@-webkit-keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: @nephritis }
+}
+
+@-moz-keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: @nephritis }
+}
+
+.cursor {
+    width:30px;
+    height:!inherit;
+    border-left: 13px solid @nephritis;
+    -webkit-animation: 0.6s blink step-end infinite;
+    -moz-animation: 0.6s blink step-end infinite;
+}
+
+.navbar-brand {
+	font-family: 'Arvo', sans-serif;
+	font-size: 24px;
+	.slash {
+		color: @nephritis;
+	}
+	.pizza {
+		color: @pomegranate;
+	}
+	.hackers {
+		color: @amethyst;
+	}
+}
+
+body {
+	margin-top: @body-margin-top;
+	background: url(/static/img/hero-bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.hero-spacer {
+	margin-top: @hero-spacer-margin-top;
+}
+
+.hero-feature {
+	margin-bottom: @hero-feature-margin-bottom;
+}
+
+footer {
+	margin: @footer-margin;
+}

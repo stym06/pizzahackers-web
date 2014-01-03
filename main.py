@@ -10,6 +10,6 @@ app = Flask(__name__.split('.')[0])
 @app.route('/')
 def home():
   """ Return index template at application root URL."""
-  return render_template('index.html')
+  return render_template('home.html')
 
 
