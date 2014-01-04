@@ -1,123 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>PizzaHackers &raquo; Doers of NIT Jamshedpur</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The doer community of National Institute of Technology, Jamshedpur.">
-    <meta name="author" content="@sanketsaurav and @avckp">
+{%extends 'base.html'%}
 
-    <!-- All CSS -->
-    <link href="/static/css/app.css" rel="stylesheet">
-  </head>
+{%set title="PizzaHackers &raquo; Doers of NIT Jamshedpur"%}
+{%set description="The doer community of National Institute of Technology, Jamshedpur."%}
 
-  <body>
-
-    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/"><span class="brand"><span class="slash">./</span><span class="pizza">pizza</span><span class="hackers">hackers</span><span class="cursor"></span></a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Rules</a></li>
-            <li><a href="#">Hacks</a></li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
-            <li><a href="#" class="join">Join</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container -->
-    </nav>
+{%block maincontent%}
+<div class="hero-spacer well main-hero">
+  <h1>
+    What does it take to <strong>change</strong> the world?
+    <small>
+      Code + <span class="heart">&hearts;</span> + Pizza!
+    </small>
+  </h1>
+  <p>
+    We are the <strong>doer</strong> community of NIT Jamshedpur. We believe we can change the world, solving one small problem at a time.
+  </p>
+  <p>
+    Saturdays are talk sessions, Sundays are hackathons. You're welcome!
+  </p>
+  <p>
+    <button type="button" class="btn btn-danger btn-lg">Join PizzaHackers</button>
+  </p>
+</div>
     
-    <div class="container">
+<div class="row text-center">
 
-      <div class="hero-spacer well">
-        <h1>
-        What does it take to <strong>change</strong> the world?
-        <small>
-          Code + <span class="heart">&hearts;</span> + Pizza!
-        </small>
-        </h1>
-        <p>
-          We are the <strong>doer</strong> community of NIT Jamshedpur. We believe we can change the world, one small problem at a time. Saturdays are talk sessions, Sundays are hackathons.
-        </p>
-        <p>
-          <button type="button" class="btn btn-danger btn-lg">Join Us</button>
-        </p>
+  <div class="col-lg-3 col-md-6 hero-feature" id="propose">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Propose</h3>
+        <p>Propose a talk or hack idea. Ideas with the most votes get selected!</p>
+        <p><a href="#" class="btn btn-block btn-primary">Funnel</a></p>
       </div>
-      
-      <div class="row text-center">
+    </div>
+  </div>
 
-        <div class="col-lg-3 col-md-6 hero-feature" id="propose">
-          <div class="thumbnail">
-            <div class="caption">
-              <h3>Propose</h3>
-              <p>Propose a talk or hack idea. Ideas with the most votes get selected!</p>
-              <p><a href="#" class="btn btn-block btn-primary">Funnel</a></p>
-            </div>
-          </div>
-        </div>
+  <div class="col-lg-3 col-md-6 hero-feature" id="hack">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Hack</h3>
+        <p>Build your idea during the weekend. We'll arrange for hosting!</p>
+        <p><a href="#" class="btn btn-block btn-primary">Github</a></p>
+      </div>
+    </div>
+  </div>
 
-        <div class="col-lg-3 col-md-6 hero-feature" id="hack">
-          <div class="thumbnail">
-            <div class="caption">
-              <h3>Hack</h3>
-              <p>Build your idea during the weekend. We'll arrange for hosting!</p>
-              <p><a href="#" class="btn btn-block btn-primary">Github</a></p>
-            </div>
-          </div>
-        </div>
+  <div class="col-lg-3 col-md-6 hero-feature" id="show">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Show</h3>
+        <p>Brag about your creation by showcasing it on PizzaHackers.</p>
+        <p><a href="#" class="btn btn-block btn-primary">Gallery</a></p>
+      </div>
+    </div>
+  </div>
 
-        <div class="col-lg-3 col-md-6 hero-feature" id="show">
-          <div class="thumbnail">
-            <div class="caption">
-              <h3>Show</h3>
-              <p>Brag about your creation by showcasing it on PizzaHackers.</p>
-              <p><a href="#" class="btn btn-block btn-primary">Gallery</a></p>
-            </div>
-          </div>
-        </div>
+  <div class="col-lg-3 col-md-6 hero-feature" id="discuss">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>Discuss</h3>
+        <p>Ask questions, answer some, or just share your gyaan.</p>
+        <p><a href="#" class="btn btn-block btn-primary">Forum</a></p>
+      </div>
+    </div>
+  </div>
 
-        <div class="col-lg-3 col-md-6 hero-feature" id="discuss">
-          <div class="thumbnail">
-            <div class="caption">
-              <h3>Discuss</h3>
-              <p>Ask questions, answer some, or just share your gyaan.</p>
-              <p><a href="#" class="btn btn-block btn-primary">Forum</a></p>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /.row -->
-      
-      <hr>
-
-      <footer>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>&copy; 2013 <a href="/">PizzaHackers</a></p>
-          </div>
-        </div>
-      </footer>
-      
-    </div><!-- /.container -->
-
-    <!-- JavaScript -->
-    <script src="/static/js/jquery.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-
-  </body>
-
-</html>
+</div><!-- /.row -->
+{%endblock maincontent%}

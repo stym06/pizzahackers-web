@@ -5878,6 +5878,11 @@ td.visible-print {
   -webkit-animation: 0.6s blink step-end infinite;
   -moz-animation: 0.6s blink step-end infinite;
 }
+.nav li {
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+}
 .navbar-brand {
   font-family: 'Arvo', sans-serif;
   font-size: 30px;
@@ -5910,10 +5915,21 @@ body {
   margin-top: 20px;
 }
 footer {
-  margin: 25px;
+  border-top: #bdc3c7 solid 1px;
+  padding: 10px;
+  color: #ecf0f1;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
 }
-.navbar-nav li a {
-  font-size: 22px;
+.credits {
+  text-transform: none;
+  text-align: right;
+  color: #ecf0f1;
+}
+button {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold !important;
+  text-transform: uppercase;
 }
 .join {
   color: #e74c3c !important;
@@ -5922,32 +5938,33 @@ footer {
 .join:hover {
   color: #9b59b6 !important;
 }
-.well {
+.main-hero {
   background: url("/static/img/gears.png") no-repeat right bottom, #1abc9c;
   border: 0px;
+  padding-left: 40px;
 }
-.well h1 {
+.main-hero h1 {
   font-family: "Raleway", sans-serif;
   color: #ecf0f1;
 }
-.well h1 small {
+.main-hero h1 small {
   color: #34495e;
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
 }
-.well h2 {
+.main-hero h2 {
   color: #34495e;
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-size: 20px;
 }
-.well p {
+.main-hero p {
   color: #fff;
   font-family: "Nunito", sans-serif;
   font-weight: normal;
   font-size: 24px;
   width: 90%;
-  line-height: 1;
+  line-height: 1.1;
 }
 .hero-feature h3 {
   color: #bdc3c7;
