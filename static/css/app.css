@@ -5931,6 +5931,9 @@ button {
   font-weight: bold !important;
   text-transform: uppercase;
 }
+.main-content {
+  min-height: 490px;
+}
 .join {
   color: #e74c3c !important;
   font-weight: bold;
@@ -5966,6 +5969,10 @@ button {
   width: 90%;
   line-height: 1.1;
 }
+.main-hero .hero-desc {
+  font-size: 22px;
+  line-height: 1.2;
+}
 .hero-feature h3 {
   color: #bdc3c7;
 }
@@ -5990,4 +5997,7 @@ button {
 #discuss .thumbnail {
   border: 0px;
   background: #34495e;
+}
+.join-hero {
+  background: #e74c3c !important;
 }
