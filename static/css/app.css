@@ -5926,7 +5926,7 @@ footer {
   text-align: right;
   color: #ecf0f1;
 }
-button {
+.btn {
   font-family: "Raleway", sans-serif;
   font-weight: bold !important;
   text-transform: uppercase;
