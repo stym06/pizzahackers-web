@@ -3,9 +3,25 @@ import sys
 
 # sys.path includes 'server/lib' due to appengine_config.py
 
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, redirect, session
+# from flask_oauth import OAuth
+
+from config import *
+
 app = Flask(__name__.split('.')[0])
+app.debug = DEBUG
+app.secret_key = SECRET
+# oauth = OAuth()
+
+# Set up Facebook Auth
+# facebook = oauth.remote_app('facebook',
+# 	base_url='https://graph.facebook.com/',
+# 	request_token_url=None,
+# 	access_token_url='/oauth/access_token',
+# 	authorize_url='https://www.facebook.com/dialog/oauth',
+# 	consumer_key=FACEBOOK_APP_ID,
+# 	consumer_secret=FACEBOOK_APP_SECRET,
+# 	request_token_params={'scope' : 'email,'})
 
 @app.route('/')
 def home():
