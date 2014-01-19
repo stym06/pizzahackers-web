@@ -6,19 +6,25 @@ from flask.ext.oauth import OAuth
 from config import *
 
 app = Flask(__name__)
-app.debug = DEBUG
-app.secret_key = SECRET
-# oauth = OAuth()
 
-# Set up Facebook Auth
-# facebook = oauth.remote_app('facebook',
-# 	base_url='https://graph.facebook.com/',
-# 	request_token_url=None,
-# 	access_token_url='/oauth/access_token',
-# 	authorize_url='https://www.facebook.com/dialog/oauth',
-# 	consumer_key=FACEBOOK_APP_ID,
-# 	consumer_secret=FACEBOOK_APP_SECRET,
-# 	request_token_params={'scope' : 'email,'})
+app.config.update(
+	DEBUG = DEBUG,
+	SQLALCHEMY_DATABASE_URI = DB_URL,
+	SECRET_KEY = SECRET
+)
+
+db = SQLAlchemy(app)
+oauth = OAuth()
+
+Set up Facebook Auth
+facebook = oauth.remote_app('facebook',
+	base_url='https://graph.facebook.com/',
+	request_token_url=None,
+	access_token_url='/oauth/access_token',
+	authorize_url='https://www.facebook.com/dialog/oauth',
+	consumer_key=FACEBOOK_APP_ID,
+	consumer_secret=FACEBOOK_APP_SECRET,
+	request_token_params={'scope' : 'email,'})
 
 @app.route('/')
 def home():
