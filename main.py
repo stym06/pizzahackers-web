@@ -1,14 +1,11 @@
-import os
-import sys
-
-# sys.path includes 'server/lib' due to appengine_config.py
-
-from flask import Flask, render_template, redirect, session
-# from flask_oauth import OAuth
+from flask import Flask, request, render_template, redirect, session, \
+	flash, g, abort, url_for
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.oauth import OAuth
 
 from config import *
 
-app = Flask(__name__.split('.')[0])
+app = Flask(__name__)
 app.debug = DEBUG
 app.secret_key = SECRET
 # oauth = OAuth()
