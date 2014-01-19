@@ -9,4 +9,4 @@ SECRET = "\x94\xe1\x9c_R\x97\x17\x9a15\xdd\xef\xb3\r\xac\xb6\x9e\xd3\x87\xff\x85
 
 # Misc
 DEBUG = True
-DB_URL = os.environ['DATABASE_URL']
+DB_URL = os.environ.get('DATABASE_URL', "postgresql://pizzahackers:pizzahackers/pizzahackers")
