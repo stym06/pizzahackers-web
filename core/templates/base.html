@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +10,7 @@
     <meta name="author" content="@sanketsaurav and @avckp">
 
     <!-- All CSS -->
-    <link href="/static/css/app.css" rel="stylesheet">
+    <link href="{% static 'core/css/app.css' %}" rel="stylesheet">
   </head>
 
   <body>
@@ -78,8 +80,8 @@
     </div><!-- /.container -->
 
     <!-- JavaScript -->
-    <script src="/static/js/jquery.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
 
     <!-- Twitter SDK-->
     <script>
