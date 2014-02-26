@@ -103,7 +103,7 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "core", "static")
+    os.path.join(BASE_DIR, "core", "static"),
     )
 
 # List of callables that know how to import templates from various sources.
