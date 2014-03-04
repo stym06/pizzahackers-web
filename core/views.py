@@ -7,7 +7,13 @@ def home(request):
 	"""
 	Render the homepage.
 	"""
-	return render_to_response('home.html')
+	c = Context({
+			'title' : 'Home &raquo; PizzaHackers - Doers of NIT Jamshedpur',
+			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.',
+			'user' : request.user
+		})
+
+	return render_to_response('home.html', c)
 
 def login(request):
 	return render_to_response('login.html')

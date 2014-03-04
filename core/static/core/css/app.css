@@ -6000,6 +6000,13 @@ footer {
   border: 0px;
   background: #34495e;
 }
+.logged-in-nav {
+  text-transform: lowercase !important;
+}
+.logged-in-nav #username {
+  color: #e74c3c;
+  font-weight: bold;
+}
 .join-hero {
   background: url("/static/core/img/community.png") no-repeat right bottom, #e74c3c;
 }

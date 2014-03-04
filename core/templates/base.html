@@ -14,19 +14,6 @@
   </head>
 
   <body>
-  <!-- Facebook SDK -->
-  <div id="fb-root"></div>
-  <script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=556488241090459";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  </script>
-  <!-- End Facebook SDK -->
-
     <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -48,8 +35,25 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+            {% if not user.username %}
             <li><a href="/login">Login</a></li>
             <li><a href="/join" class="join">Join</a></li>
+            {% else %}
+            <li class="logged-in-nav">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="username">
+                {{user.username}} <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="/account">Account</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="{% url 'logout' %}">Logout</a>
+                </li>
+              </ul>
+            </li>
+            {% endif %}
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
@@ -68,8 +72,6 @@
             <p>&copy; PizzaHackers. All rights reserved.</p>
           </div>
           <div class="col-lg-4 text-center">
-            <div class="fb-like" data-href="https://facebook.com/pizzahackers" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-            <a href="https://twitter.com/pizzahackers" class="twitter-follow-button" data-show-count="false" data-lang="en" >Follow @pizzahackers</a>
           </div>
           <div class="col-lg-4 credits">
             <p>Made with <span class="heart">&hearts;</span> at NIT JSR</p>
@@ -82,11 +84,5 @@
     <!-- JavaScript -->
     <script src="{% static 'core/js/jquery.js' %}"></script>
     <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
-
-    <!-- Twitter SDK-->
-    <script>
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-    </script>
-    <!-- End Twitter SDK -->
   </body>
 </html>

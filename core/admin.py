@@ -1,3 +1,5 @@
 from django.contrib import admin
+from models import Hacker, Proposal
 
-# Register your models here.
+admin.site.register(Hacker)
+admin.site.register(Proposal)
