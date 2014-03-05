@@ -26,7 +26,7 @@ class Hacker(models.Model):
 	user = models.OneToOneField(User, related_name='user')
 	batch = models.CharField(max_length=4, choices=BATCHES)
 	branch = models.CharField(max_length=3, choices=BRANCHES)
-	roll_number = models.CharField(max_length=12)
+	roll_number = models.CharField(max_length=12, unique=True)
 
 	# Extra profile information
 	bio = models.TextField(blank=True)
@@ -34,6 +34,9 @@ class Hacker(models.Model):
 	github_id = models.CharField(max_length=32, blank=True)
 	facebook_id = models.CharField(max_length=32, blank=True)
 	twitter_id = models.CharField(max_length=32, blank=True)
+
+	def __unicode__(self):
+		return self.user.first_name + ' ' + self.user.last_name
 
 class Proposal(models.Model):
 	"""

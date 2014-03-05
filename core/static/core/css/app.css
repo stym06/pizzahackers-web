@@ -5933,6 +5933,7 @@ footer {
 }
 .main-content {
   min-height: 490px;
+  margin-top: 50px;
 }
 .join {
   color: #e74c3c !important;
@@ -6062,9 +6063,6 @@ footer {
 }
 .join-panel .alert {
   font-size: 18px;
-}
-.main-content {
-  margin-top: 50px;
 }
 .login-panel {
   border: 1px solid #e74c3c;
