@@ -17,20 +17,96 @@
   </p>
 </div>
 
-<!-- TODO: Add form fields. -->
-<div class="row-fluid fb-register-block">
-  <div class="col-md-4 col-md-offset-4">
-    <a href="#" class="btn btn-lg btn-block btn-primary">Register with Facebook</a>
-    <div class="no-spam">No spam. Promise. :)</div>
-  </div>
-</div>
+<div class="panel panel-success join-panel">
 
-<div class="row-fluid">
-  <div class="col-md-8 col-md-offset-2 terms">
-    <p>
-      By registering with PizzaHackers, you thereby swear by pizza and code that you will follow the rules and the Code of Conduct of the community, and henceforth call yourself a PizzaHacker.
-    </p>
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Sign up with PizzaHackers
+    </h3>
   </div>
+  
+  <form action="/join" class="form-horizontal" method="POST">
+    
+    {% if error %}
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-6">
+        <div class="alert alert-danger">
+          <strong>Error!</strong> {{error}}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="form-group">
+      <label for="name" class="col-sm-3 control-label">Name</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" name="first_name" placeholder="First name" required>
+      </div>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" name="last_name" placeholder="Last name" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="col-sm-3 control-label">Email</label>
+      <div class="col-sm-6">
+        <input type="email" class="form-control" name="email" placeholder="Your primary email address" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username" class="col-sm-3 control-label">Username</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" name="username" placeholder="Should be at least 6 chars, no spaces" required min-length="6">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="col-sm-3 control-label">Password</label>
+      <div class="col-sm-6">
+        <input type="password" class="form-control" name="password" placeholder="Choose a strong password" required min-length="6">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="roll_number" class="col-sm-3 control-label">Roll Number</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" name="roll_number" placeholder="e.g. CS110412" required min-length="6">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="batch" class="col-sm-3 control-label">Batch</label>
+      <div class="col-sm-6">
+        <select class="form-control" name="batch" required>
+        {% for batch in batches %}
+          <option value='{{batch.0}}'>
+            {{batch.1}}
+          </option>
+        {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="branch" class="col-sm-3 control-label">Branch</label>
+      <div class="col-sm-6">
+        <select class="form-control" name="branch" required>
+        {% for branch in branches %}
+          <option value='{{branch.0}}'>
+            {{branch.1}}
+          </option>
+        {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+       <div class="col-sm-offset-3 col-sm-6">
+         <button type="submit" class="btn btn-success btn-lg btn-block">Join PizzaHackers</button>
+       </div>
+     </div>
+  </form>
 </div>
 
 {%endblock maincontent%}

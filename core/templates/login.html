@@ -1,1 +1,52 @@
 {%extends 'base.html'%}
+
+{% block maincontent %}
+
+<div class="panel login-panel">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Login to PizzaHackers
+    </h3>
+  </div>
+  <form action="/join" class="form-horizontal" method="POST">
+    
+    {% if error %}
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-6">
+        <div class="alert alert-danger">
+          <strong>Error!</strong> {{error}}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+    <div class="form-group">
+      <label for="username" class="col-sm-3 control-label">Username</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" name="username" required min-length="6">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="col-sm-3 control-label">Password</label>
+      <div class="col-sm-6">
+        <input type="password" class="form-control" name="password" required min-length="6">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class=" col-sm-offset-3 col-sm-6">
+        <a href="/forgot" id="forgot-password">Forgot Password?</a>
+      </div>
+    </div>
+
+    <div class="form-group">
+       <div class="col-sm-offset-3 col-sm-6">
+         <button type="submit" class="btn btn-danger btn-lg btn-block">Login</button>
+       </div>
+     </div>
+  </form>
+</div>
+
+{% endblock maincontent %}

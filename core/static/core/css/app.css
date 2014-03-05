@@ -6007,6 +6007,17 @@ footer {
   color: #e74c3c;
   font-weight: bold;
 }
+.logged-in-nav li a {
+  text-transform: lowercase;
+  font-size: 16px;
+}
+.logged-in-nav #logout {
+  font-weight: bold;
+  color: #e74c3c;
+}
+.logged-in-nav #logout:hover {
+  color: #fff;
+}
 .join-hero {
   background: url("/static/core/img/community.png") no-repeat right bottom, #e74c3c;
 }
@@ -6028,4 +6039,56 @@ footer {
   font-size: 13px;
   font-family: "Raleway", sans-serif;
   text-align: center;
+}
+.join-panel {
+  border: 1px solid #2ecc71;
+  background: url("/static/core/img/join.png") no-repeat right bottom, #2c3e50;
+}
+.join-panel .panel-heading {
+  background-color: #2ecc71;
+  border-bottom: 1px solid #2ecc71;
+}
+.join-panel .panel-title {
+  color: #fff;
+  padding-left: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+.join-panel form {
+  margin: 25px;
+  font-size: 22px;
+  color: #2ecc71;
+}
+.join-panel .alert {
+  font-size: 18px;
+}
+.main-content {
+  margin-top: 50px;
+}
+.login-panel {
+  border: 1px solid #e74c3c;
+  background: url("/static/core/img/login.png") no-repeat right bottom, #ecf0f1;
+}
+.login-panel .panel-heading {
+  background-color: #e74c3c;
+  border-bottom: 1px solid #e74c3c;
+}
+.login-panel .panel-title {
+  color: #fff;
+  padding-left: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+.login-panel form {
+  margin: 25px;
+  font-size: 22px;
+  color: #e74c3c;
+}
+.login-panel .alert {
+  font-size: 18px;
+}
+#forgot-password {
+  font-size: 16px;
 }

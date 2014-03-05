@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import Context
+from models import Hacker
 
 # Create your views here.
 
@@ -16,10 +17,30 @@ def home(request):
 	return render_to_response('home.html', c)
 
 def login(request):
-	return render_to_response('login.html')
+	"""
+	Render the login page.
+	"""
+
+	c = Context({
+			'title' : 'Login &raquo; Login to PizzaHackers.',
+			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.'
+		})
+
+	return render_to_response('login.html', c)
 
 def join(request):
-	return render_to_response('join.html')
+	"""
+	Render the signup page.
+	"""
+
+	c = Context({
+			'title' : 'Join &raquo; Join PizzaHackers and make a difference.',
+			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.',
+			'batches' : Hacker.BATCHES,
+			'branches' : Hacker.BRANCHES
+		})
+
+	return render_to_response('join.html', c)
 
 def rules(request):
 	return render_to_response('rules.html')

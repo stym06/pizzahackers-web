@@ -6,7 +6,7 @@ class Hacker(models.Model):
 	Profile of a user on PizzaHackers.
 	"""
 
-	YEARS = (
+	BATCHES = (
 		('2010', '2010'),
 		('2011', '2011'),
 		('2012', '2012'),
@@ -24,7 +24,7 @@ class Hacker(models.Model):
 
 	# Basic information
 	user = models.OneToOneField(User, related_name='user')
-	batch = models.CharField(max_length=4, choices=YEARS)
+	batch = models.CharField(max_length=4, choices=BATCHES)
 	branch = models.CharField(max_length=3, choices=BRANCHES)
 	roll_number = models.CharField(max_length=12)
 

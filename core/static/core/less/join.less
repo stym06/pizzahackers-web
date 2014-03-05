@@ -23,3 +23,38 @@
 	font-family: "Raleway", sans-serif;
 	text-align: center;
 }
+
+.ph-panel(@header, @bg, @img-name) {
+
+	.panel-heading {
+		background-color: @header;
+		border-bottom: 1px solid @header;
+
+	}
+
+	.panel-title {
+		color: #fff;
+		padding-left: 25px;
+		font-weight: bold;
+		text-transform: uppercase;
+		font-family: 'Lato', sans-serif;
+	}
+
+	border: 1px solid @header;
+	background: url("/static/core/img/@{img-name}.png") no-repeat right bottom, @bg;
+
+	form {
+		margin: 25px;
+		font-size: 22px;
+		color: @header;
+	}
+
+	.alert {
+		font-size: 18px;
+	}
+}
+
+.join-panel {
+	
+	.ph-panel(@emerald, @midnight-blue, 'join');
+}
