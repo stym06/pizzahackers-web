@@ -65,3 +65,5 @@ class Discussion(models.Model):
 	"""
 	A new topic of discussion.
 	"""
+
+	pass
