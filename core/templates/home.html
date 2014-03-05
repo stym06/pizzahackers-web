@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
-
+{% load static %}
 {%block maincontent%}
-<div class="hero-spacer well base-hero main-hero">
+<div class="hero-spacer well main-hero">
   <h1>
     What does it take to <strong>change</strong> the world?
     <small>
@@ -21,42 +21,62 @@
     
 <div class="row text-center">
 
-  <div class="col-lg-3 col-md-6 hero-feature" id="propose">
+  <div class="col-lg-3 col-md-6 hero-feature feature-propose">
     <div class="thumbnail">
-      <div class="caption">
-        <h3>Propose</h3>
-        <p>Propose a talk or hack idea. Ideas with the most votes get selected!</p>
-        <p><a href="#" class="btn btn-block btn-primary">Funnel</a></p>
+      <div class="caption caption-initial">
+        <img src="{% static 'core/img/propose.png' %}" alt="">
+        <h4>Propose</h4>
+      </div>
+      <div class="caption caption-final">
+        <h3>
+          Propose an idea for a talk, a product, or a simple hack.
+        </h3>
+        <p><a href="#" class="btn btn-block btn-danger">Propose Now</a></p>
       </div>
     </div>
   </div>
 
-  <div class="col-lg-3 col-md-6 hero-feature" id="hack">
+  <div class="col-lg-3 col-md-6 hero-feature feature-vote">
     <div class="thumbnail">
-      <div class="caption">
-        <h3>Hack</h3>
-        <p>Build your idea during the weekend. We'll arrange for hosting!</p>
-        <p><a href="#" class="btn btn-block btn-primary">Github</a></p>
+      <div class="caption caption-initial">
+        <img src="{% static 'core/img/vote.png' %}" alt="">
+        <h4>Vote</h4>
+      </div>
+      <div class="caption caption-final">
+        <h3>
+          Vote for the proposals that interest you.
+        </h3>
+        <p><a href="#" class="btn btn-block btn-primary">See Proposals</a></p>
       </div>
     </div>
   </div>
 
-  <div class="col-lg-3 col-md-6 hero-feature" id="show">
+  <div class="col-lg-3 col-md-6 hero-feature feature-discuss">
     <div class="thumbnail">
-      <div class="caption">
-        <h3>Show</h3>
-        <p>Brag about your creation by showcasing it on PizzaHackers.</p>
-        <p><a href="#" class="btn btn-block btn-primary">Gallery</a></p>
+      <div class="caption caption-initial">
+        <img src="{% static 'core/img/discuss.png' %}" alt="">
+        <h4>Discuss</h4>
+      </div>
+      <div class="caption caption-final">
+        <h3>
+          Discuss interesting stuff with the community.
+        </h3>
+        <p><a href="#" class="btn btn-block btn-warning">Forum</a></p>
       </div>
     </div>
   </div>
 
-  <div class="col-lg-3 col-md-6 hero-feature" id="discuss">
+  <div class="col-lg-3 col-md-6 hero-feature feature-showcase">
     <div class="thumbnail">
-      <div class="caption">
-        <h3>Discuss</h3>
-        <p>Ask questions, answer some, or just share your gyaan.</p>
-        <p><a href="#" class="btn btn-block btn-primary">Forum</a></p>
+      <div class="caption caption-initial">
+        <img src="{% static 'core/img/showcase.png' %}" alt="">
+        <h4>Showcase</h4>
+      </div>
+      <div class="caption caption-final">
+        <h3>
+          Display your creation to the world, and brag!
+        </h3>
+        <p><a href="#" class="btn btn-block btn-info">Gallery</a></p>
       </div>
     </div>
   </div>

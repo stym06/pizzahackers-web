@@ -1,2 +1,69 @@
 {%extends 'base.html'%}
+{% load static %}
+{% block maincontent %}
 
+<div class="hero-spacer well about-hero">
+  <h1>
+    What. Who. Why.
+    <small>
+      All about PizzaHackers.
+    </small>
+  </h1>
+  <p>
+    We are <strong>PizzaHackers</strong> a.k.a. <strong>Innovation Club</strong>, NIT Jamshedpur.
+  </p>
+  <p class="hero-desc">
+    PizzaHackers was born out of an urge to create a community of hackers and doers in the institute. A small group of students began to meet up on the weekends to discuss ideas, and build some stuff. Later, with the consent of Hon'ble director Dr. Rambabu Kodali, the informal group was formalized into the Innovation Club.
+  </p>
+  <p>
+    <a class="btn btn-success btn-lg" href="/join">Join PizzaHackers</a>
+  </p>
+</div>
+
+<div class="panel about-preamble-panel">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Mission Statement
+    </h3>
+  </div>
+  <div class="panel-body">
+  	<p>
+  		The mission of PizzaHackers is to breed and promote a community of hackers in the institute - <strong>doers</strong> who have innovative ideas and are willing to materialize them into solving problems - small, but real. The core belief lies that a healthy community in which all members are equal is more healthy for a college ecosystem than a hierarchical club. PizzaHackers thus aims to create a living, breathing community of ideasmiths, hackers, and doers - without any restrictions on age or branch.
+  	</p>
+  </div>
+
+</div>
+
+<div class="panel about-faculty-panel">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Advisory
+    </h3>
+  </div>
+  <div class="panel-body">
+  	<div class="row">
+
+  		<div class="col-sm-2">
+  			<img src="{% static 'core/img/placeholder.png' %}" alt="" class="img-circle">
+  		</div>
+  		<div class="col-sm-4">
+  			<h3>Dr. Rambabu Kodali</h3>
+  			<h4>Director, NIT Jamshedpur</h4>
+  		</div>
+
+  		<div class="col-sm-2">
+  			<img src="{% static 'core/img/placeholder.png' %}" alt="" class="img-circle">
+  		</div>
+  		<div class="col-sm-4">
+  			<h3>Prof. M. K. Sinha</h3>
+  			<h4>Faculty Advisor</h4>
+  		</div>
+
+  	</div>
+  </div>
+
+</div>
+
+{% endblock %}

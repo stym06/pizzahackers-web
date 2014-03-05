@@ -88,10 +88,20 @@ def join(request):
 		return render(request, 'join.html', ctx)
 
 def rules(request):
-	return render_to_response('rules.html')
+	ctx = {
+			'title' : 'Rules &raquo; PizzaHackers - Doers of NIT Jamshedpur',
+			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.'
+		}
+
+	return render(request, 'rules.html', ctx)
 
 def about(request):
-	return render_to_response('about.html')
+	ctx = {
+			'title' : 'About &raquo; PizzaHackers - Doers of NIT Jamshedpur',
+			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.'
+		}
+
+	return render(request, 'about.html', ctx)
 
 def hacks(request):
 	return render_to_response('hacks.html')

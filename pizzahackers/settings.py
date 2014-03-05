@@ -117,6 +117,8 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'core', 'templates'),
     )
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
 try:
     from local_settings import *
 
