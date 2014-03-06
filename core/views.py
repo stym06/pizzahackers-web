@@ -1,4 +1,5 @@
-from django.shortcuts import render_to_response, render, redirect
+from django.shortcuts import render_to_response, render, redirect, \
+			get_object_or_404				
 from django.template import RequestContext
 from django.contrib.auth.models import User
 import django.contrib.auth as auth
@@ -16,7 +17,36 @@ def home(request):
 			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.'
 		}
 
-	return render(request, 'home.html', ctx)
+	if not request.user.username:
+		return render(request, 'home.html', ctx)
+
+	else:
+		ctx['title'] = 'Dashboard &raquo; PizzaHackers'
+		return render(request, 'dashboard.html', ctx)
+
+def profile(request, username):
+	"""
+	Render the profile for a hacker.
+	"""
+
+	hacker = get_object_or_404(Hacker, user__username=username)
+
+	full_name = ' '.join([hacker.user.first_name, hacker.user.last_name])
+
+	ctx = {
+			'title' : '%s &raquo; PizzaHackers' % full_name,
+			'description' : hacker.bio,
+			'hacker' : hacker,
+			'full_name' : full_name
+		}
+
+	return render(request, 'profile.html', ctx)
+
+def account(request):
+	"""
+	Account page.
+	"""
+	pass
 
 def login(request):
 	"""
@@ -41,6 +71,9 @@ def login(request):
 				ctx['error'] = "This account has been disabled."
 		else:
 			ctx['error'] = "Invalid username / password."
+
+	if request.user.username:
+		return redirect('/')
 
 	return render(request, 'login.html', ctx)
 
@@ -68,7 +101,8 @@ def join(request):
 
 			# Create a new Hacker
 			hacker = Hacker.objects.create(user=user, batch=data['batch'],
-						branch=data['branch'], roll_number=data['roll_number'])
+						branch=data['branch'], roll_number=data['roll_number'],
+						facebook_id=data['facebook_id'])
 
 			ctx['success'] = "Registration successful! Please log in."
 
@@ -85,6 +119,10 @@ def join(request):
 			return render(request, 'join.html', ctx)
 
 	else:
+
+		if request.user.username:
+			return redirect('/')
+
 		return render(request, 'join.html', ctx)
 
 def rules(request):

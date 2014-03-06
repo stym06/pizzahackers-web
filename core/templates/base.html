@@ -41,9 +41,12 @@
             {% else %}
             <li class="logged-in-nav">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="username">
-                {{user.username}} <b class="caret"></b>
+                <img src="{{user.hacker.thumbnail_url}}" alt="" class="img-circle avatar-thumbnail"> {{user.username}} <b class="caret"></b>
               </a>
               <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="/{{user.username}}">Profile</a>
+                </li>
                 <li>
                   <a href="/account">Account</a>
                 </li>

@@ -5935,6 +5935,13 @@ footer {
   min-height: 490px;
   margin-top: 50px;
 }
+.avatar-thumbnail {
+  height: 40px;
+  width: 40px;
+  margin-top: -12px;
+  margin-bottom: -12px;
+  margin-right: 3px;
+}
 .join {
   color: #e74c3c !important;
   font-weight: bold;
@@ -6186,6 +6193,12 @@ footer {
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
 }
+.join-panel .panel-buttons {
+  color: #fff;
+}
+.join-panel .panel-buttons a {
+  color: #fff;
+}
 .join-panel .panel-body {
   background: url("/static/core/img/join.png") no-repeat right bottom, #2c3e50;
   padding-left: 40px !important;
@@ -6227,6 +6240,12 @@ footer {
   font-weight: bold;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
+}
+.login-panel .panel-buttons {
+  color: #fff;
+}
+.login-panel .panel-buttons a {
+  color: #fff;
 }
 .login-panel .panel-body {
   background: url("/static/core/img/login.png") no-repeat right bottom, #ecf0f1;
@@ -6305,6 +6324,12 @@ footer {
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
 }
+.about-preamble-panel .panel-buttons {
+  color: #fff;
+}
+.about-preamble-panel .panel-buttons a {
+  color: #fff;
+}
 .about-preamble-panel .panel-body {
   background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
   padding-left: 40px !important;
@@ -6346,6 +6371,12 @@ footer {
   font-weight: bold;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
+}
+.about-faculty-panel .panel-buttons {
+  color: #fff;
+}
+.about-faculty-panel .panel-buttons a {
+  color: #fff;
 }
 .about-faculty-panel .panel-body {
   background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
@@ -6421,6 +6452,12 @@ footer {
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
 }
+.rules-general-panel .panel-buttons {
+  color: #fff;
+}
+.rules-general-panel .panel-buttons a {
+  color: #fff;
+}
 .rules-general-panel .panel-body {
   background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
   padding-left: 40px !important;
@@ -6463,6 +6500,12 @@ footer {
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
 }
+.rules-membership-panel .panel-buttons {
+  color: #fff;
+}
+.rules-membership-panel .panel-buttons a {
+  color: #fff;
+}
 .rules-membership-panel .panel-body {
   background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
   padding-left: 40px !important;
@@ -6489,4 +6532,160 @@ footer {
 }
 .rules-membership-panel .alert {
   font-size: 18px;
+}
+.dashboard-proposals-panel {
+  border: 1px solid #e74c3c;
+  background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
+}
+.dashboard-proposals-panel .panel-heading {
+  background-color: #e74c3c;
+  border-bottom: 1px solid #e74c3c;
+}
+.dashboard-proposals-panel .panel-title {
+  color: #fff;
+  padding-left: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+.dashboard-proposals-panel .panel-buttons {
+  color: #fff;
+}
+.dashboard-proposals-panel .panel-buttons a {
+  color: #fff;
+}
+.dashboard-proposals-panel .panel-body {
+  background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
+  padding-left: 40px !important;
+  font-size: 18px;
+  color: #2c3e50;
+}
+.dashboard-proposals-panel .panel-body h3 {
+  font-family: 'Arvo', serif;
+  color: #e74c3c;
+  font-size: 22px;
+  font-weight: bold;
+}
+.dashboard-proposals-panel .panel-body h4 {
+  font-family: 'Raleway', sans-serif;
+  color: #698aac;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+.dashboard-proposals-panel form {
+  margin: 25px;
+  font-size: 22px;
+  color: #e74c3c;
+}
+.dashboard-proposals-panel .alert {
+  font-size: 18px;
+}
+.dashboard-discussions-panel {
+  border: 1px solid #f39c12;
+  background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
+}
+.dashboard-discussions-panel .panel-heading {
+  background-color: #f39c12;
+  border-bottom: 1px solid #f39c12;
+}
+.dashboard-discussions-panel .panel-title {
+  color: #fff;
+  padding-left: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+.dashboard-discussions-panel .panel-buttons {
+  color: #fff;
+}
+.dashboard-discussions-panel .panel-buttons a {
+  color: #fff;
+}
+.dashboard-discussions-panel .panel-body {
+  background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
+  padding-left: 40px !important;
+  font-size: 18px;
+  color: #2c3e50;
+}
+.dashboard-discussions-panel .panel-body h3 {
+  font-family: 'Arvo', serif;
+  color: #f39c12;
+  font-size: 22px;
+  font-weight: bold;
+}
+.dashboard-discussions-panel .panel-body h4 {
+  font-family: 'Raleway', sans-serif;
+  color: #698aac;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+.dashboard-discussions-panel form {
+  margin: 25px;
+  font-size: 22px;
+  color: #f39c12;
+}
+.dashboard-discussions-panel .alert {
+  font-size: 18px;
+}
+.panel-item-proposal {
+  margin-bottom: 10px !important;
+  border: 0px;
+  cursor: pointer;
+}
+.panel-item-proposal .panel-body {
+  padding: 15px !important;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.3);
+  transition: all 0.3s ease;
+}
+.panel-item-proposal:hover .panel-body {
+  background-color: #e74c3c;
+  color: #ecf0f1;
+}
+.panel-item-discussion {
+  margin-bottom: 10px !important;
+  border: 0px;
+  cursor: pointer;
+}
+.panel-item-discussion .panel-body {
+  padding: 15px !important;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.3);
+  transition: all 0.3s ease;
+}
+.panel-item-discussion:hover .panel-body {
+  background-color: #f39c12;
+  color: #ecf0f1;
+}
+.profile-details h1 {
+  color: #e67e22;
+  font-family: 'Arvo', sans-serif;
+  font-weight: bold;
+  margin-bottom: -15px;
+}
+.profile-details h3 {
+  color: #bdc3c7;
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-bottom: -5px;
+}
+.profile-details h4 {
+  color: #cbd0d3;
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: -4px;
+}
+.profile-details .profile-bio {
+  font-family: 'Raleway', sans-serif;
+  font-color: #ecf0f1;
+  line-height: 1.4;
+}
+.profile-body {
+  margin-top: 20px;
 }

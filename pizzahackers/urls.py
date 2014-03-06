@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^about$', 'core.views.about', name='about'),
     url(r'^hacks$', 'core.views.hacks', name='hacks'),
     url(r'^rules$', 'core.views.rules', name='rules'),
-    # url(r'^blog/', include('blog.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^(?P<username>\w+)/$', 'core.views.profile', name='profile'),
+    # url(r'^blog/', include('blog.urls')),
 )
