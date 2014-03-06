@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+<!-- <div class="form-group">
+  	    <label for="password" class="col-sm-3 control-label">Password</label>
+  	    <div class="col-sm-8">
+  	      <input type="password" class="form-control" name="password" placeholder="Choose a strong password" required min-length="6">
+  	    </div>
+  	  </div> -->
+<div class="row">
+<div class="col-sm-offset-1 col-sm-10">
+<div class="panel account-profile-panel">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Profile Settings
+    </h3>
+  </div>
+
+  <div class="panel-body">
+  	<form action="/account" class="form-horizontal" method="POST">
+  	  
+  	  {% csrf_token %}
+
+  	  {% if error %}
+  	  <div class="form-group">
+  	    <div class="col-sm-offset-3 col-sm-7">
+  	      <div class="alert alert-danger">
+  	        <strong>Error!</strong> {{error}}
+  	      </div>
+  	    </div>
+  	  </div>
+  	  {% endif %}
+
+  	  <div class="form-group">
+  	    <label for="name" class="col-sm-3 control-label">Name</label>
+  	    <div class="col-sm-4">
+  	      <input type="text" class="form-control" name="first_name" placeholder="First name" required value="{{user.first_name}}">
+  	    </div>
+  	    <div class="col-sm-4">
+  	      <input type="text" class="form-control" name="last_name" placeholder="Last name" required value="{{user.last_name}}">
+  	    </div>
+  	  </div>
+
+  	  <div class="form-group">
+  	    <label for="bio" class="col-sm-3 control-label">Bio</label>
+  	    <div class="col-sm-8">
+  	      <textarea name="bio" rows="4" class="form-control">{{user.hacker.bio}}</textarea>
+  	    </div>
+  	  </div>
+
+  	  <div class="form-group">
+  	    <label for="interests" class="col-sm-3 control-label">Interests</label>
+  	    <div class="col-sm-8">
+  	      <input type="text" class="form-control" name="interests" value="{{user.hacker.interests}}">
+  	    </div>
+  	  </div>
+
+  	  <div class="form-group">
+  	    <label for="facebook_id" class="col-sm-3 control-label">Facebook username</label>
+  	    <div class="col-sm-8">
+  	      <input type="text" class="form-control" name="facebook_id" value="{{user.hacker.facebook_id}}">
+  	    </div>
+  	  </div>
+
+  	  <div class="form-group">
+  	    <label for="twitter_id" class="col-sm-3 control-label">Twitter username</label>
+  	    <div class="col-sm-8">
+  	      <input type="text" class="form-control" name="twitter_id" value="{{user.hacker.twitter_id}}">
+  	    </div>
+  	  </div>
+
+  	  <div class="form-group">
+  	    <label for="github_id" class="col-sm-3 control-label">Github username</label>
+  	    <div class="col-sm-8">
+  	      <input type="text" class="form-control" name="github_id" value="{{user.hacker.github_id}}">
+  	    </div>
+  	  </div>
+
+  	  <div class="form-group">
+  	    <label for="email" class="col-sm-3 control-label">Email</label>
+  	    <div class="col-sm-8">
+  	      <input type="email" class="form-control" name="email" placeholder="Your primary email address" required value="{{user.email}}">
+  	    </div>
+  	  </div>
+  	  
+  	  <div class="form-group">
+  	    <label for="roll_number" class="col-sm-3 control-label">Roll Number</label>
+  	    <div class="col-sm-8">
+  	      <input type="text" class="form-control" name="roll_number" placeholder="e.g. CS110412" required min-length="6" value="{{user.hacker.roll_number}}">
+  	    </div>
+  	  </div>
+
+  	  <div class="form-group">
+  	    <label for="batch" class="col-sm-3 control-label">Batch</label>
+  	    <div class="col-sm-8">
+  	      <select class="form-control" name="batch" required>
+  	      {% for batch in batches %}
+  	        <option value='{{batch.0}}' {%ifequal batch.0 user.hacker.batch%}selected{%endifequal%}>
+  	          {{batch.1}}
+  	        </option>
+  	      {% endfor %}
+  	      </select>
+  	   	</div>
+  	  </div>
+
+  	  <div class="form-group">
+  	    <label for="branch" class="col-sm-3 control-label">Branch</label>
+  	    <div class="col-sm-8">
+  	      <select class="form-control" name="branch" required>
+  	      {% for branch in branches %}
+  	        <option value='{{branch.0}}' {%ifequal branch.0 user.hacker.branch%}selected{%endifequal%}>
+  	          {{branch.1}}
+  	        </option>
+  	      {% endfor %}
+  	      </select>
+  	    </div>
+  	  </div>
+
+  	  <div class="form-group">
+  	     <div class="col-sm-offset-3 col-sm-8">
+  	       <button type="submit" class="btn btn-success btn-lg btn-block">Save Changes</button>
+  	     </div>
+  	   </div>
+  	</form>
+  </div>
+
+</div>
+</div>
+</div>
+{% endblock %}

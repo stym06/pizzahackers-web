@@ -119,6 +119,8 @@ TEMPLATE_DIRS = (
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
+LOGIN_URL = '/login'
+
 try:
     from local_settings import *
 

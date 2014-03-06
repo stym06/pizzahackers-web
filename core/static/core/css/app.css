@@ -6689,3 +6689,54 @@ footer {
 .profile-body {
   margin-top: 20px;
 }
+.account-profile-panel {
+  border: 1px solid #27ae60;
+  background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
+}
+.account-profile-panel .panel-heading {
+  background-color: #27ae60;
+  border-bottom: 1px solid #27ae60;
+}
+.account-profile-panel .panel-title {
+  color: #fff;
+  padding-left: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+.account-profile-panel .panel-buttons {
+  color: #fff;
+}
+.account-profile-panel .panel-buttons a {
+  color: #fff;
+}
+.account-profile-panel .panel-body {
+  background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
+  padding-left: 40px !important;
+  font-size: 18px;
+  color: #34495e;
+}
+.account-profile-panel .panel-body h3 {
+  font-family: 'Arvo', serif;
+  color: #27ae60;
+  font-size: 22px;
+  font-weight: bold;
+}
+.account-profile-panel .panel-body h4 {
+  font-family: 'Raleway', sans-serif;
+  color: #7795b4;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+.account-profile-panel form {
+  margin: 25px;
+  font-size: 22px;
+  color: #27ae60;
+}
+.account-profile-panel .alert {
+  font-size: 18px;
+}
+.account-profile-panel form {
+  font-size: 18px;
+}

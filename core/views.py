@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response, render, redirect, \
 from django.template import RequestContext
 from django.contrib.auth.models import User
 import django.contrib.auth as auth
+from django.contrib.auth.decorators import login_required
 
 from models import Hacker
 
@@ -42,11 +43,34 @@ def profile(request, username):
 
 	return render(request, 'profile.html', ctx)
 
+@login_required
 def account(request):
 	"""
 	Account page.
 	"""
-	pass
+
+	user_fields = ['first_name', 'last_name', 'email']
+	hacker_fields = ['bio', 'interests', 'facebook_id', 'twitter_id', 'github_id',
+						'roll_number', 'batch', 'branch']
+
+	hacker = request.user.hacker
+	ctx = {
+			'title' : 'Account &raquo; PizzaHackers',
+			'description' : hacker.bio,
+			'batches' : Hacker.BATCHES,
+			'branches' : Hacker.BRANCHES
+		}
+
+	if request.method == 'POST':
+		for field in user_fields:
+			setattr(request.user, field, request.POST[field])
+			request.user.save()
+		for field in hacker_fields:
+			setattr(request.user.hacker, field, request.POST[field])
+			request.user.hacker.save()
+		return redirect('/')
+
+	return render(request, 'account.html', ctx)
 
 def login(request):
 	"""
