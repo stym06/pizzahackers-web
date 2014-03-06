@@ -34,17 +34,18 @@
 		  </div>
 		  <div class="panel-body">
 
-		  	<div class="panel panel-item-proposal">
-		  		<div class="panel-body">
-		  			Test
-		  		</div>
-		  	</div>
+		  	{% for proposal in hacker.proposals.all %}
 
 		  	<div class="panel panel-item-proposal">
 		  		<div class="panel-body">
-		  			Test
+		  			{{proposal.title}}
 		  		</div>
 		  	</div>
+		  	{% empty %}
+		  	<h3 class="nocontent">
+		  		No proposals found! :(
+		  	</h3>
+		  	{% endfor %}
 
 		  </div>
 
@@ -60,17 +61,18 @@
 		  </div>
 		  <div class="panel-body">
 
-		  	<div class="panel panel-item-discussion">
-		  		<div class="panel-body">
-		  			Test
-		  		</div>
-		  	</div>
+		  	{% for discussion in hacker.discussions.all %}
 
-		  	<div class="panel panel-item-discussion">
+		  	<div class="panel panel-item-proposal">
 		  		<div class="panel-body">
-		  			Test
+		  			{{discussion.title}}
 		  		</div>
 		  	</div>
+		  	{% empty %}
+		  	<h3 class="nocontent">
+		  		No discussions found! :(
+		  	</h3>
+		  	{% endfor %}
 
 		  </div>
 

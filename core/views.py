@@ -23,6 +23,7 @@ def home(request):
 
 	else:
 		ctx['title'] = 'Dashboard &raquo; PizzaHackers'
+		ctx['hacker'] = request.user.hacker
 		return render(request, 'dashboard.html', ctx)
 
 def profile(request, username):

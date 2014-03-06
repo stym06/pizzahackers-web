@@ -6536,6 +6536,8 @@ footer {
 .dashboard-proposals-panel {
   border: 1px solid #e74c3c;
   background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
+  max-height: 370px;
+  min-height: 135px;
 }
 .dashboard-proposals-panel .panel-heading {
   background-color: #e74c3c;
@@ -6584,6 +6586,8 @@ footer {
 .dashboard-discussions-panel {
   border: 1px solid #f39c12;
   background: url("/static/core/img/.png") no-repeat right bottom, #ecf0f1;
+  max-height: 370px;
+  min-height: 135px;
 }
 .dashboard-discussions-panel .panel-heading {
   background-color: #f39c12;
@@ -6660,6 +6664,15 @@ footer {
 .panel-item-discussion:hover .panel-body {
   background-color: #f39c12;
   color: #ecf0f1;
+}
+.nocontent {
+  color: #bdc3c7 !important;
+  font-family: 'Raleway', sans-serif !important;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.c2a {
+  margin-bottom: 15px;
 }
 .profile-details h1 {
   color: #e67e22;

@@ -1,9 +1,13 @@
 .dashboard-proposals-panel {
 	.ph-panel(@alizarin, @clouds, @midnight-blue, '');
+	max-height: 370px;
+	min-height: 135px;
 }
 
 .dashboard-discussions-panel {
 	.ph-panel(@orange, @clouds, @midnight-blue, '');
+	max-height: 370px;
+	min-height: 135px;
 }
 
 .panel-items(@primary-color) {
@@ -36,4 +40,15 @@
 
 .panel-item-discussion {
 	.panel-items(@orange);
+}
+
+.nocontent {
+	color: @silver !important;
+	font-family: 'Raleway', sans-serif !important;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.c2a {
+	margin-bottom: 15px;
 }

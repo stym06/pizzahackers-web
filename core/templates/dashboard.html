@@ -3,31 +3,41 @@
 
 {% block maincontent %}
 
+<div class="row c2a">
+	<div class="col-sm-6">
+		<a href="#" class="btn btn-danger btn-lg btn-block">Propose a talk / hack</a>
+	</div>
+	<div class="col-sm-6">
+		<a href="#" class="btn btn-warning btn-lg btn-block">START NEW DISCUSSION</a>
+	</div>
+</div>
+
 <div class="row">
 	<div class="col-sm-6">
 		<div class="panel dashboard-proposals-panel">
 
 		  <div class="panel-heading">
 		    <h3 class="panel-title">
-		      Newest Proposals 
+		      My Proposals 
 		      <small class="pull-right panel-buttons">
-		      	<a href="#">New</a> | <a href="#">See all</a>
+		      	<a href="#">See all</a>
 		      </small>
 		    </h3>
 		  </div>
 		  <div class="panel-body">
 
-		  	<div class="panel panel-item-proposal">
-		  		<div class="panel-body">
-		  			Test
-		  		</div>
-		  	</div>
+		  	{% for proposal in hacker.proposals.all %}
 
 		  	<div class="panel panel-item-proposal">
 		  		<div class="panel-body">
-		  			Test
+		  			{{proposal.title}}
 		  		</div>
 		  	</div>
+		  	{% empty %}
+		  	<h3 class="nocontent">
+		  		No proposals found! :(
+		  	</h3>
+		  	{% endfor %}
 
 		  </div>
 
@@ -38,22 +48,26 @@
 
 		  <div class="panel-heading">
 		    <h3 class="panel-title">
-		      Discussions
+		      My Discussions
+		      <small class="pull-right panel-buttons">
+		      	<a href="#">See all</a>
+		      </small>
 		    </h3>
 		  </div>
 		  <div class="panel-body">
 
-		  	<div class="panel panel-item-discussion">
-		  		<div class="panel-body">
-		  			Test
-		  		</div>
-		  	</div>
+		  	{% for discussion in hacker.discussions.all %}
 
-		  	<div class="panel panel-item-discussion">
+		  	<div class="panel panel-item-proposal">
 		  		<div class="panel-body">
-		  			Test
+		  			{{discussion.title}}
 		  		</div>
 		  	</div>
+		  	{% empty %}
+		  	<h3 class="nocontent">
+		  		No discussions found! :(
+		  	</h3>
+		  	{% endfor %}
 
 		  </div>
 
