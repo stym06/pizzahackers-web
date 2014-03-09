@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+<div class="hero-spacer well hackers-hero">
+  <h1>
+    The Hackers.
+    <small>
+    	{% if not user.username %}
+    	<a href="/join" class="btn btn-danger pull-right">Join</a>
+    	{% endif %}	
+    </small>
+  </h1>
+</div>
+
+<div class="row">
+	{% for hacker in hackers %}
+	<div class="col-sm-4">
+		<div class="panel panel-default panel-small-hacker">
+			<div class="panel-body">
+				<div class="col-sm-4">
+					<div class="avatar">
+						<a href="/{{hacker.user.username}}">
+							<img src="{{hacker.profile_image_url}}" alt="{{full_name}}" class="img-circle avatar">
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<a href="/{{hacker.user.username}}"><h1>{{hacker.user.first_name}}</h1></a>
+					<h3>{{hacker.branch}} • {{hacker.batch}}</h3>
+					{% if hacker.interests %}
+					<h4><span class="heart">♥</span> {{hacker.interests}}</h4>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

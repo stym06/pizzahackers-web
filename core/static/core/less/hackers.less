@@ -1,0 +1,49 @@
+.hackers-hero {
+	.ph-hero(@wet-asphalt, @nephritis, @clouds, '');
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.panel-small-hacker {
+
+	border-color: darken(@wet-asphalt, 10%);
+
+	h1 {
+		color: @carrot;
+		font-family: 'Arvo', sans-serif;
+		font-weight: bold;
+		margin-bottom: -15px;
+		margin-top: 0px;
+		font-size: 30px;
+	}
+
+	h3 {
+		color: @silver;
+		font-family: 'Nunito', sans-serif;
+		text-transform: uppercase;
+		font-size: 20px;
+		margin-bottom: -5px;
+	}
+
+	h4 {
+		color: lighten(@silver, 5%);
+		font-size: 16px;
+		text-transform: uppercase;
+		line-height: 1.1;
+		margin-bottom: -4px;
+	}
+
+	img {
+		height: 100px;
+		width: 100px;
+	}
+
+	.panel-body {
+		background-color: @wet-asphalt;
+		transition: all 0.5s ease;
+
+		&:hover {
+			background-color: darken(@wet-asphalt, 10%);
+		}
+	}
+}

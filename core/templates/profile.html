@@ -13,7 +13,9 @@
 		<div class="profile-details">
 			<h1>{{full_name}}</h1>
 			<h3>{{hacker.branch}} • {{hacker.batch}}</h3>
+			{% if hacker.interests %}
 			<h4><span class="heart">♥</span> {{hacker.interests}}</h4>
+			{% endif %}
 			{% if hacker.bio %}
 			<h4 class="profile-bio">
 				{{hacker.bio | truncatechars:255}}
@@ -36,11 +38,13 @@
 
 		  	{% for proposal in hacker.proposals.all %}
 
-		  	<div class="panel panel-item-proposal">
-		  		<div class="panel-body">
-		  			{{proposal.title}}
+		  	<a href="/proposals/{{proposal.slug}}">
+		  		<div class="panel panel-item-proposal">
+		  			<div class="panel-body">
+		  				{{proposal.title}}
+		  			</div>
 		  		</div>
-		  	</div>
+		  	</a>
 		  	{% empty %}
 		  	<h3 class="nocontent">
 		  		No proposals found! :(

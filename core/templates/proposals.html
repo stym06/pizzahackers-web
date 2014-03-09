@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+<div class="hero-spacer well proposals-list-hero">
+  <h1>
+    Proposals.
+    <small>
+    	Ideas for talks / hacks.
+    	<a href="/proposals/new" class="btn btn-warning pull-right">Propose New</a>
+    </small>
+  </h1>
+</div>
+
+<div class="row">
+	{% for proposal in proposals %}
+	<div class="col-sm-6">
+		<div class="panel panel-proposal">
+			<div class="panel-body">
+					<a href="/proposals/{{proposal.slug}}">
+						<h1>
+							{{proposal.title | truncatechars:30}}
+							{% ifequal proposal.type 'TALK' %}
+							<span class="label label-success pull-right">
+							{% else %}
+							<span class="label label-danger pull-right">
+							{%endifequal%}
+								{{proposal.type}}
+							</span>
+						</h1>
+					</a>
+					<h2>By
+						<a href="/{{proposal.proposer.user.username}}">
+							<span class="name">{{proposal.proposer.full_name}}</span>
+						</a>
+						</h2>
+					<h3>Tags: {{proposal.tags}}</h3>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

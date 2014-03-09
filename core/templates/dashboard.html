@@ -5,10 +5,10 @@
 
 <div class="row c2a">
 	<div class="col-sm-6">
-		<a href="#" class="btn btn-danger btn-lg btn-block">Propose a talk / hack</a>
+		<a href="/proposals/new" class="btn btn-danger btn-lg btn-block">Propose a talk / hack</a>
 	</div>
 	<div class="col-sm-6">
-		<a href="#" class="btn btn-warning btn-lg btn-block">START NEW DISCUSSION</a>
+		<a href="#" class="btn btn-warning btn-lg btn-block">Start a new discussion</a>
 	</div>
 </div>
 
@@ -20,7 +20,7 @@
 		    <h3 class="panel-title">
 		      My Proposals 
 		      <small class="pull-right panel-buttons">
-		      	<a href="#">See all</a>
+		      	<a href="/proposals">See all</a>
 		      </small>
 		    </h3>
 		  </div>
@@ -28,11 +28,13 @@
 
 		  	{% for proposal in hacker.proposals.all %}
 
-		  	<div class="panel panel-item-proposal">
-		  		<div class="panel-body">
-		  			{{proposal.title}}
+		  	<a href="/proposals/{{proposal.slug}}">
+		  		<div class="panel panel-item-proposal">
+		  			<div class="panel-body">
+		  				{{proposal.title}}
+		  			</div>
 		  		</div>
-		  	</div>
+		  	</a>
 		  	{% empty %}
 		  	<h3 class="nocontent">
 		  		No proposals found! :(

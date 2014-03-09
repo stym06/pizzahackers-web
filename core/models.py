@@ -7,7 +7,7 @@ import json
 
 def has_changed(instance, field):
     if not instance.pk:
-        return False
+        return True
     old_value = instance.__class__._default_manager.\
              filter(pk=instance.pk).values(field).get()[field]
     return not getattr(instance, field) == old_value
@@ -53,6 +53,9 @@ class Hacker(models.Model):
 	twitter_id = models.CharField(max_length=32, blank=True)
 
 	def __unicode__(self):
+		return self.user.first_name + ' ' + self.user.last_name
+
+	def full_name(self):
 		return self.user.first_name + ' ' + self.user.last_name
 
 	def _fetch_image_url(self, base_url):

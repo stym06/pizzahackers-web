@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+<div class="hero-spacer well proposals-single-hero">
+  <h1>
+  	{{proposal.title}}
+    <!-- <small>
+    	<a href="/proposals/new" class="btn btn-success pull-right">Vote Up</a>
+    </small> -->
+  </h1>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-proposal-description">
+			<div class="panel-body">
+				<div class="col-sm-8">
+					<h2>Description</h2>
+					<p>{{proposal.description | linebreaks}}</p>
+				</div>
+				<div class="col-sm-4">
+					<h2>Tags</h2>
+					<p>{{proposal.tags}}</p>
+					<h2>Demo URL</h2>
+					<p>{{proposal.url}}</p>
+					<h2>Repo URL</h2>
+					<p>{{proposal.repo_url}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-default comments-panel">
+				<div class="panel-heading">
+			    <h3 class="panel-title">
+			      Comments
+			    </h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="row comment">
+				  	<div class="col-sm-1 comment-img">
+				  		<img src="{{user.hacker.thumbnail_url}}" alt="" class="img-circle">
+				  	</div>
+					<div class="col-sm-11 comment-body">
+				  		<form action="/comment" class="" method="POST">
+				  			  <div class="col-sm-6">
+				  			    <textarea name="comment" rows="2" class="form-control"></textarea>
+				  			  </div>
+				  			  <div class="col-sm-3">
+				  			    <button type="submit" class="btn btn-success btn-lg btn-block">Add COmment</button>
+				  			  </div>
+			  			</form>
+				  	</div>
+				 </div>
+			  	{% for comment in proposal.comments.all %}
+			  	<div class="row comment">
+				  	<div class="col-sm-1 comment-img">
+				  		<img src="{{comment.user.thumbnail_url}}" alt="" class="img-circle">
+				  	</div>
+				  	<div class="col-sm-11 comment-body">
+			  			<div class="comment-hacker">
+			  				{{comment.user.full_name}}
+			  			</div>
+			  			<div class="comment-comment">
+			  				{{comment.comment}}
+			  			</div>
+				  	</div>
+				 </div>
+				 {% endfor %}
+			  </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

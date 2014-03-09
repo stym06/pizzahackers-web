@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 
-from models import Hacker
+from models import Hacker, Proposal
 
 # Create your views here.
 
@@ -72,6 +72,63 @@ def account(request):
 		return redirect('/')
 
 	return render(request, 'account.html', ctx)
+
+def proposals(request, action=None, slug=None):
+	"""
+	Handle proposals.
+	"""
+
+	ctx = {
+			'title' : 'Proposals &raquo; PizzaHackers - Doers of NIT Jamshedpur',
+			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.'
+		}
+
+	if request.method == 'POST':
+		fields = ['title', 'type', 'description', 'tags', 'completed', 
+				'url', 'repo_url']
+		data = request.POST.dict()
+		
+		if data['completed'] == 'on':
+			data['completed'] = True
+		else:
+			data['completed'] = False
+
+		if data.has_key('slug'):
+			proposal = get_or_404(Proposal, slug=data['slug'])
+		else:
+			proposal = Proposal(proposer=request.user.hacker)
+		for field in fields:
+			setattr(proposal, field, data[field])
+			try:
+				proposal.save()
+			except Exception, e:
+				ctx['error'] = e
+				return render(request, 'proposals_edit.html', ctx)
+
+		return redirect('/proposals')
+
+	if action:
+		ctx['types'] = Proposal.TYPES
+		if action == 'new':
+			ctx['title'] = 'Add a new proposal'
+			return render(request, 'proposals_edit.html', ctx)
+
+		else:
+			slug = action
+			proposal = get_object_or_404(Proposal, slug=slug)
+			ctx['title'] = proposal.title
+			ctx['proposal'] = proposal
+			return render(request, 'proposal.html', ctx)
+
+
+
+		# elif action == 'edit':
+		# 	proposal = get_object_or_404(Proposal, slug=slug)
+		# 	ctx['title'] = 'Edit &raquo; %s' % proposal.title
+		# 	return render(request, 'proposals_edit.html', ctx)
+
+	ctx['proposals'] = Proposal.objects.all()
+	return render(request, 'proposals.html', ctx)
 
 def login(request):
 	"""
@@ -157,6 +214,15 @@ def rules(request):
 		}
 
 	return render(request, 'rules.html', ctx)
+
+def hackers(request):
+	hackers = Hacker.objects.all()
+	ctx = {
+			'title' : 'Hackers &raquo; PizzaHackers - Doers of NIT Jamshedpur',
+			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.',
+			'hackers' : hackers
+		}
+	return render(request, 'hackers.html', ctx)
 
 def about(request):
 	ctx = {
