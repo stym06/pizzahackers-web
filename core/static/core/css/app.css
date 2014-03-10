@@ -7067,3 +7067,18 @@ footer {
 .comments-panel .comment .comment-img {
   margin-right: -25px !important;
 }
+.comments-panel .comment .comment-hacker {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.comments-panel .comment .comment-hacker a {
+  color: #bdc3c7;
+}
+.comments-panel .comment .comment-hacker a:hover {
+  color: #a1aab0;
+}
+.comments-panel .comment form {
+  margin-top: 0px;
+  margin-left: -15px;
+}

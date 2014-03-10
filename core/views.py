@@ -87,6 +87,9 @@ def proposals(request, action=None, slug=None):
 		fields = ['title', 'type', 'description', 'tags', 'completed', 
 				'url', 'repo_url']
 		data = request.POST.dict()
+
+		if not data.has_key('completed'):
+			data['completed'] = False
 		
 		if data['completed'] == 'on':
 			data['completed'] = True

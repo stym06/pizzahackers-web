@@ -20,12 +20,18 @@
 					<p>{{proposal.description | linebreaks}}</p>
 				</div>
 				<div class="col-sm-4">
+					{% if proposal.tags %}
 					<h2>Tags</h2>
 					<p>{{proposal.tags}}</p>
+					{% endif %}
+					{% if proposal.url %}
 					<h2>Demo URL</h2>
 					<p>{{proposal.url}}</p>
+					{% endif %}
+					{% if proposal.repo_url %}
 					<h2>Repo URL</h2>
 					<p>{{proposal.repo_url}}</p>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -40,21 +46,23 @@
 			    </h3>
 			  </div>
 			  <div class="panel-body">
-			  	<div class="row comment">
+			  	{% if user.username %}
+				<div class="row comment">
 				  	<div class="col-sm-1 comment-img">
 				  		<img src="{{user.hacker.thumbnail_url}}" alt="" class="img-circle">
 				  	</div>
 					<div class="col-sm-11 comment-body">
 				  		<form action="/comment" class="" method="POST">
-				  			  <div class="col-sm-6">
+				  			  <div class="col-sm-9">
 				  			    <textarea name="comment" rows="2" class="form-control"></textarea>
 				  			  </div>
 				  			  <div class="col-sm-3">
-				  			    <button type="submit" class="btn btn-success btn-lg btn-block">Add COmment</button>
+				  			    <button type="submit" class="btn btn-success btn-lg">Add Comment</button>
 				  			  </div>
 			  			</form>
 				  	</div>
 				 </div>
+			  	{% endif %}
 			  	{% for comment in proposal.comments.all %}
 			  	<div class="row comment">
 				  	<div class="col-sm-1 comment-img">
@@ -62,7 +70,9 @@
 				  	</div>
 				  	<div class="col-sm-11 comment-body">
 			  			<div class="comment-hacker">
-			  				{{comment.user.full_name}}
+			  				<a href="/{{comment.user.user.username}}">
+			  					{{comment.user.full_name}}
+			  				</a>
 			  			</div>
 			  			<div class="comment-comment">
 			  				{{comment.comment}}
