@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 
-from models import Hacker, Proposal
+from models import Hacker, Proposal, Comment
 
 # Create your views here.
 
@@ -121,6 +121,7 @@ def proposals(request, action=None, slug=None):
 			proposal = get_object_or_404(Proposal, slug=slug)
 			ctx['title'] = proposal.title
 			ctx['proposal'] = proposal
+			ctx['obj'] = 'proposal'
 			return render(request, 'proposal.html', ctx)
 
 
@@ -132,6 +133,30 @@ def proposals(request, action=None, slug=None):
 
 	ctx['proposals'] = Proposal.objects.all()
 	return render(request, 'proposals.html', ctx)
+
+def comment(request):
+	"""
+	Add a new comment on POST, retrieve comments on GET.
+	"""
+
+	if request.method == 'POST':
+
+		data = request.POST.dict()
+
+		if data['obj'] == 'proposal':
+			obj = Proposal.objects.get(slug=data['pk'])
+
+		elif data['obj'] == 'discussion':
+			obj = Discussion.objects.get(pk=data['pk'])
+
+		try:
+			comment = Comment(user=request.user.hacker, 
+				comment=data['comment'], obj=obj)
+			comment.save()
+			
+			return redirect(request.META['HTTP_REFERER'])
+		except:
+			return redirect(request.META['HTTP_REFERER'])
 
 def login(request):
 	"""

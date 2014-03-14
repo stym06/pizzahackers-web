@@ -53,6 +53,9 @@
 				  	</div>
 					<div class="col-sm-11 comment-body">
 				  		<form action="/comment" class="" method="POST">
+				  			{% csrf_token %}
+				  			<input type="hidden" name='obj' value="{{obj}}">
+				  			<input type="hidden" name='pk' value="{{proposal.slug}}">
 				  			  <div class="col-sm-9">
 				  			    <textarea name="comment" rows="2" class="form-control"></textarea>
 				  			  </div>

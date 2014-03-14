@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.generic import GenericRelation, GenericForeignKey
 
 import requests
 import json
@@ -104,6 +106,7 @@ class Proposal(models.Model):
 	repo_url = models.CharField(max_length=128, blank=True)
 
 	upvotes = models.ManyToManyField(Hacker, related_name='upvoters', blank=True)
+	comments = GenericRelation('Comment')
 
 	proposer = models.ForeignKey(Hacker, related_name='proposals')
 	created = models.DateTimeField(auto_now_add=True)
@@ -127,6 +130,10 @@ class Discussion(models.Model):
 	description = models.TextField(blank=True)
 	created = models.DateTimeField(auto_now_add=True)
 	hacker = models.ForeignKey('Hacker', related_name='discussions')
+	comments = GenericRelation('Comment')
+
+	def __unicode__(self):
+		return self.title
 
 class Comment(models.Model):
 	"""
@@ -136,6 +143,13 @@ class Comment(models.Model):
 	comment = models.TextField(blank=True)
 	user = models.ForeignKey(Hacker, related_name='comments')
 	created = models.DateTimeField(auto_now_add=True)
+
+	content_type = models.ForeignKey(ContentType)
+	object_id = models.PositiveIntegerField()
+	obj = GenericForeignKey('content_type', 'object_id')
 	
-	discussion = models.ForeignKey('Discussion', related_name='comments',  blank=True, null=True)
-	proposal = models.ForeignKey('Proposal', related_name='comments',  blank=True, null=True)
+	# discussion = models.ForeignKey('Discussion', related_name='comments',  blank=True, null=True)
+	# proposal = models.ForeignKey('Proposal', related_name='comments',  blank=True, null=True)
+
+	def __unicode__(self):
+		return self.comment
