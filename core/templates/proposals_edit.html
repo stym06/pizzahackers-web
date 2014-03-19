@@ -9,7 +9,11 @@
 
   <div class="panel-heading">
     <h3 class="panel-title">
+      {% if proposal %}
+      Edit - {{proposal.title}}
+      {% else %}
       Add a new Proposal
+      {% endif %}
     </h3>
   </div>
 
@@ -27,7 +31,9 @@
   	    </div>
   	  </div>
   	  {% endif %}
-
+      {% if proposal.slug %}
+      <input type="hidden" name="slug" value="{{proposal.slug}}">
+      {% endif %}
   	  <div class="form-group">
   	    <label for="title" class="col-sm-3 control-label">Title</label>
   	    <div class="col-sm-8">

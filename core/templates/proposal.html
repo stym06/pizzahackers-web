@@ -5,9 +5,11 @@
 <div class="hero-spacer well proposals-single-hero">
   <h1>
   	{{proposal.title}}
-    <!-- <small>
-    	<a href="/proposals/new" class="btn btn-success pull-right">Vote Up</a>
-    </small> -->
+  	{% ifequal proposal.proposer user.hacker%}
+    <small>
+    	<a href="/proposals/edit/{{proposal.slug}}" class="btn btn-success pull-right">Edit</a>
+    </small>
+    {% endifequal %}
   </h1>
 </div>
 

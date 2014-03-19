@@ -95,9 +95,9 @@ def proposals(request, action=None, slug=None):
 			data['completed'] = True
 		else:
 			data['completed'] = False
-
+			
 		if data.has_key('slug'):
-			proposal = get_or_404(Proposal, slug=data['slug'])
+			proposal = get_object_or_404(Proposal, slug=data['slug'])
 		else:
 			proposal = Proposal(proposer=request.user.hacker)
 		for field in fields:
@@ -114,6 +114,12 @@ def proposals(request, action=None, slug=None):
 		ctx['types'] = Proposal.TYPES
 		if action == 'new':
 			ctx['title'] = 'Add a new proposal'
+			return render(request, 'proposals_edit.html', ctx)
+
+		elif action == 'edit':
+			proposal = get_object_or_404(Proposal, slug=slug)
+			ctx['title'] = "Edit &raquo; %s" % proposal.title
+			ctx['proposal'] = proposal
 			return render(request, 'proposals_edit.html', ctx)
 
 		else:
