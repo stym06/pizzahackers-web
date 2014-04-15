@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+<div class="hero-spacer well discussions-list-hero">
+  <h1>
+    Discussions.
+    <small>
+    	Brainstorming on ideas.
+    	<a href="/discussions/new" class="btn btn-warning pull-right">Start New</a>
+    </small>
+  </h1>
+</div>
+
+<div class="row">
+	{% for discussion in discussions %}
+	<div class="col-sm-6">
+		<div class="panel panel-discussion">
+			<div class="panel-body">
+					<a href="/discussions/{{discussion.id}}">
+						<h1>
+							{{discussion.title | truncatechars:30}}
+						</h1>
+					</a>
+					<h2>By
+						<a href="/{{discussion.hacker.user.username}}">
+							<span class="name">{{discussion.hacker.full_name}}</span>
+						</a>
+						</h2>
+					<h3>Tags: {{discussion.tags}}</h3>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

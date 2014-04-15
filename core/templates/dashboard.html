@@ -8,7 +8,7 @@
 		<a href="/proposals/new" class="btn btn-danger btn-lg btn-block">Propose a talk / hack</a>
 	</div>
 	<div class="col-sm-6">
-		<a href="#" class="btn btn-warning btn-lg btn-block">Start a new discussion</a>
+		<a href="/discussions/new" class="btn btn-warning btn-lg btn-block">Start a new discussion</a>
 	</div>
 </div>
 
@@ -31,7 +31,7 @@
 		  	<a href="/proposals/{{proposal.slug}}">
 		  		<div class="panel panel-item-proposal">
 		  			<div class="panel-body">
-		  				{{proposal.title}}
+		  				{{proposal.title | truncatechars:42}}
 		  				<a href="/proposals/edit/{{proposal.slug}}" class="btn btn-info pull-right">Edit</a>
 		  			</div>
 		  		</div>
@@ -53,7 +53,7 @@
 		    <h3 class="panel-title">
 		      My Discussions
 		      <small class="pull-right panel-buttons">
-		      	<a href="#">See all</a>
+		      	<a href="/discussions">See all</a>
 		      </small>
 		    </h3>
 		  </div>
@@ -61,11 +61,14 @@
 
 		  	{% for discussion in hacker.discussions.all %}
 
-		  	<div class="panel panel-item-proposal">
-		  		<div class="panel-body">
-		  			{{discussion.title}}
+		  	<a href="/discussions/{{discussion.id}}">
+		  		<div class="panel panel-item-discussion">
+		  			<div class="panel-body">
+		  				{{discussion.title}}
+		  				<a href="/discussions/edit/{{discussion.id}}" class="btn btn-info pull-right">Edit</a>
+		  			</div>
 		  		</div>
-		  	</div>
+		  	</a>
 		  	{% empty %}
 		  	<h3 class="nocontent">
 		  		No discussions found! :(

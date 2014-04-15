@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+<div class="hero-spacer well discussions-single-hero">
+  <h1>
+  	{{discussion.title}}
+  	{% ifequal discussion.hacker user.hacker%}
+    <small>
+    	<a href="/discussions/edit/{{discussion.id}}" class="btn btn-success pull-right">Edit</a>
+    </small>
+    {% endifequal %}
+  </h1>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-discussion-description">
+			<div class="panel-body">
+				<div class="col-sm-8">
+					<h2>Description</h2>
+					<p>{{discussion.description | linebreaks}}</p>
+				</div>
+				<div class="col-sm-4">
+					{% if discussion.tags %}
+					<h2>Tags</h2>
+					<p>{{discussion.tags}}</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-default comments-panel">
+				<div class="panel-heading">
+			    <h3 class="panel-title">
+			      Comments
+			    </h3>
+			  </div>
+			  <div class="panel-body">
+			  	{% if user.username %}
+				<div class="row comment">
+				  	<div class="col-sm-1 comment-img">
+				  		<img src="{{user.hacker.thumbnail_url}}" alt="" class="img-circle">
+				  	</div>
+					<div class="col-sm-11 comment-body">
+				  		<form action="/comment" class="" method="POST">
+				  			{% csrf_token %}
+				  			<input type="hidden" name='obj' value="{{obj}}">
+				  			<input type="hidden" name='pk' value="{{discussion.id}}">
+				  			  <div class="col-sm-9">
+				  			    <textarea name="comment" rows="2" class="form-control"></textarea>
+				  			  </div>
+				  			  <div class="col-sm-3">
+				  			    <button type="submit" class="btn btn-success btn-lg">Add Comment</button>
+				  			  </div>
+			  			</form>
+				  	</div>
+				 </div>
+			  	{% endif %}
+			  	{% for comment in discussion.comments.all %}
+			  	<div class="row comment">
+				  	<div class="col-sm-1 comment-img">
+				  		<img src="{{comment.user.thumbnail_url}}" alt="" class="img-circle">
+				  	</div>
+				  	<div class="col-sm-11 comment-body">
+			  			<div class="comment-hacker">
+			  				<a href="/{{comment.user.user.username}}">
+			  					{{comment.user.full_name}}
+			  				</a>
+			  			</div>
+			  			<div class="comment-comment">
+			  				{{comment.comment}}
+			  			</div>
+				  	</div>
+				 </div>
+				 {% endfor %}
+			  </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

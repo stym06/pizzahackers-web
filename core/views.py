@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 
-from models import Hacker, Proposal, Comment
+from models import Hacker, Proposal, Discussion, Comment
 
 # Create your views here.
 
@@ -95,7 +95,7 @@ def proposals(request, action=None, slug=None):
 			data['completed'] = True
 		else:
 			data['completed'] = False
-			
+
 		if data.has_key('slug'):
 			proposal = get_object_or_404(Proposal, slug=data['slug'])
 		else:
@@ -108,7 +108,7 @@ def proposals(request, action=None, slug=None):
 				ctx['error'] = e
 				return render(request, 'proposals_edit.html', ctx)
 
-		return redirect('/proposals')
+		return redirect(request.META['HTTP_REFERER'])
 
 	if action:
 		ctx['types'] = Proposal.TYPES
@@ -130,15 +130,60 @@ def proposals(request, action=None, slug=None):
 			ctx['obj'] = 'proposal'
 			return render(request, 'proposal.html', ctx)
 
-
-
-		# elif action == 'edit':
-		# 	proposal = get_object_or_404(Proposal, slug=slug)
-		# 	ctx['title'] = 'Edit &raquo; %s' % proposal.title
-		# 	return render(request, 'proposals_edit.html', ctx)
-
 	ctx['proposals'] = Proposal.objects.all()
 	return render(request, 'proposals.html', ctx)
+
+def discussions(request, action=None, id=None):
+	"""
+	Handle discussions.
+	"""
+	ctx = {
+			'title' : 'Discussions &raquo; PizzaHackers - Doers of NIT Jamshedpur',
+			'description' : 'PizzaHackers is the doer community of NIT Jamshedpur.'
+		}
+
+	if request.method == 'POST':
+		fields = ['title', 'description', 'tags']
+		data = request.POST.dict()
+
+		if data.has_key('id'):
+			discussion = get_object_or_404(Discussion, id=data['id'])
+		else:
+			discussion = Discussion(hacker=request.user.hacker)
+		
+		for field in fields:
+			setattr(discussion, field, data[field])
+			
+			try:
+				discussion.save()
+
+			except Exception, e:
+				ctx['error'] = e
+				return render(request, 'discussions_edit.html', ctx)
+
+		return redirect(request.META['HTTP_REFERER'])
+
+	if action:
+		if action == 'new':
+			ctx['title'] = 'Add a new discussion'
+			return render(request, 'discussions_edit.html', ctx)
+
+		elif action == 'edit':
+			discussion = get_object_or_404(Discussion, id=id)
+			ctx['title'] = "Edit &raquo; %s" % discussion.title
+			ctx['discussion'] = discussion
+			return render(request, 'discussions_edit.html', ctx)
+
+		else:
+			iid = action
+			discussion = get_object_or_404(Discussion, id=iid)
+			ctx['title'] = discussion.title
+			ctx['discussion'] = discussion
+			ctx['obj'] = 'discussion'
+			return render(request, 'discussion.html', ctx)
+
+	ctx['discussions'] = Discussion.objects.all()
+	return render(request, 'discussions.html', ctx)
 
 def comment(request):
 	"""

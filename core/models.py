@@ -112,6 +112,9 @@ class Proposal(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
 
+	class Meta:
+		ordering = ['-created']
+
 	def __unicode__(self):
 		return self.title
 
@@ -131,6 +134,9 @@ class Discussion(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	hacker = models.ForeignKey('Hacker', related_name='discussions')
 	comments = GenericRelation('Comment')
+
+	class Meta:
+		ordering = ['-created']
 
 	def __unicode__(self):
 		return self.title
@@ -153,3 +159,6 @@ class Comment(models.Model):
 
 	def __unicode__(self):
 		return self.comment
+
+	class Meta:
+		ordering = ['-created']
