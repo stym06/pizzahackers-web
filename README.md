@@ -10,9 +10,7 @@ PizzaHackers runs on the following technologies.
 
 - [Python](http://python.org)
 
-- [Google App Engine](http://developer.google.com/appengine)
-
-- [Flask](http://flask.pocoo.org)
+- [Django](https://www.djangoproject.com)
 
 ### Frontend
 
@@ -28,30 +26,29 @@ PizzaHackers runs on the following technologies.
 
 ### Backend
 
-1. Download [Google App Engine](http://developer.google.com/appengine/downloads) for your operating system.
-
-	- If you are running Linux, download the SDK and unzip it to `/usr/local`. Your SDK's path will then look like, `/usr/local/google_appengine`, and it will be available on `$PATH`.
-
-	- Add aliases for common GAE executables to your `~/.bashrc` file.
-
-	```
-	$ echo "alias devappserver='/usr/local/google_appengine/dev_appserver.py'" >> ~/.bashrc
-	$ echo "alias appcfg='/usr/local/google_appengine/appcfg.py'" >> ~/.bashrc
-	$ source ~/.bashrc
-	```
-	
-	- If you are running Mac / Windows, you can use Google App Engine Launcher.
-
-2. Move to the project directory, `pizzahackers-web`. Create a `virtualenv`, and then execute:
+1. Clone the repository to your workspace.
 ```
-$ pip install -r requirements.txt -t server/lib
+git clone https://github.com/PizzaHackers/pizzahackers-web.git
 ```
-This will install the dependencies in your `virtualenv`.
 
-3. Run the local GAE server.
+2. Install `virtualenvwrapper` as described [here](http://virtualenvwrapper.readthedocs.org/en/latest/install.html#basic-installation).
+
+3. Create a new virtualenv.
 ```
-$ devappserver .
+mkvirtualenv pizzahackers-web
 ```
+
+4. Install the required dependencies in your virtualenv.
+```
+cd pizzahackers-web
+pip install -r requirements.txt
+```
+
+3. Run the local Django server.
+```
+python manage.py runserver
+```
+You app should now be live at `http://localhost:8000`
 
 4. Start hacking!
 
